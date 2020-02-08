@@ -4,6 +4,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import NavbarClone from '../components/NavbarClone'
 import { getServices } from '../store'
+import ServiceItem from '../components/service/ServiceItem'
 
 class Home extends React.Component {
   state = {
@@ -13,6 +14,12 @@ class Home extends React.Component {
   componentDidMount(){
     const services = getServices()
     this.setState({services:services})
+  }
+
+  renderServices = (services) => {
+    return services.map(service =>
+      <ServiceItem service={service} key={service.id} />
+    )
   }
 
   render() {
@@ -59,29 +66,7 @@ class Home extends React.Component {
             <div className="content-wrapper">
               <div className="columns">
 
-                { services.map(service => {
-                  return (
-                    <div
-                    key={service.id} className="column is-one-third">
-                      <div className="feature-card is-bordered has-text-centered revealOnScroll delay-1" data-animation="fadeInLeft">
-                        <div className="card-title">
-                           <h4>{service.title}</h4>
-                        </div>
-                        <div className="card-icon">
-                           <img src={service.image} alt=""/>
-                        </div>
-                        <div className="card-text">
-                           <p>{service.description}</p>
-                        </div>
-                        <div className="card-action">
-                           <a href="#" className="button btn-align-md accent-btn raised">Learn More</a>
-                        </div>
-                      </div>
-                    </div>
-                  )
-                })
-
-                }
+                { this.renderServices(services) }
 
 
               </div>
