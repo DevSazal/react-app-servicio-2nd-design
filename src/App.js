@@ -23,15 +23,21 @@ function App() {
         {/* <NavbarClone /> */}
         <Sidebar />
         <Switch>
-          <Route path="/">
-            <HomePage />
-          </Route>
-          <Route path="/profile">
-            <ProfilePage />
-          </Route>
-          <Route path="/faq">
-            <FaqPage />
-          </Route>
+			{/* Router Bug Fixed:: you have use "exact" for root url or you have to keep root url route at the end of all defined route */}
+			<Route path="/profile" component={ProfilePage} />
+			<Route path="/faq" component={FaqPage} />
+            <Route path="/" component={HomePage} />
+                {/* 
+                  <Route path="/profile">
+                    <ProfilePage />
+                  </Route>
+                  <Route path="/faq">
+                    <FaqPage />
+                  </Route>
+                  <Route path="/">
+                    <HomePage />
+                  </Route>
+                */}
         </Switch>
       </Router>
     </div>
