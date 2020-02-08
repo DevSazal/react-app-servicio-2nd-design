@@ -1,16 +1,18 @@
-/* eslint jsx-a11y/anchor-is-valid: 0 */
-
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
-    <nav className="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
+    <nav
+      id={props.id || ''}
+      className="navbar is-fresh is-transparent no-shadow"
+      role="navigation" aria-label="main navigation">
       <div className="container">
         <div className="navbar-brand">
-          <a className="navbar-item" href="https://cssninja.io">
+          <Link to="https://www.freelancer.com/u/DevSazal" className="navbar-item">
              <div className="title">Servicio</div>
-          </a>
+          </Link>
 
           <a className="navbar-item is-hidden-desktop is-hidden-tablet">
             <div id="menu-icon-wrapper" className="menu-icon-wrapper" style={{visibility: 'visible'}}>
@@ -45,9 +47,9 @@ const Navbar = () => {
           </div>
 
           <div className="navbar-end">
-            <a href="#" className="navbar-item is-secondary">
+            <Link to="/faq" className="navbar-item is-secondary">
                 Features
-            </a>
+            </Link>
             <a href="#" className="navbar-item is-secondary">
                 Pricing
             </a>

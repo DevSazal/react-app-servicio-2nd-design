@@ -1,8 +1,5 @@
-/* eslint jsx-a11y/anchor-is-valid: 0 */
-
 import React from 'react'
-import Navbar from '../components/Navbar'
-import NavbarClone from '../components/NavbarClone'
+
 import { getServices } from '../store'
 import ServiceItem from '../components/service/ServiceItem'
 
@@ -26,8 +23,7 @@ class Home extends React.Component {
     const { services } = this.state
     return (
       <div>
-        <Navbar />
-        <NavbarClone />
+
         <section className="hero is-default is-bold">
           <div className="hero-body">
             <div className="container">
@@ -73,6 +69,7 @@ class Home extends React.Component {
             </div>
           </div>
         </section>
+
       </div>
     )
   }
