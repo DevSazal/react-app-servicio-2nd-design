@@ -1,6 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
+import { Provider } from 'react-redux'
+import initStore from './store'
+
 
 // import logo from './logo.svg';
 // import './App.css';
@@ -14,9 +17,11 @@ import Navbar from './components/Navbar'
 // import NavbarClone from './components/NavbarClone'
 
 
+const store = initStore()
+
 function App() {
   return (
-    <div>
+    <Provider store={store}>
       <Router>
         <Navbar />
         <Navbar id="navbar-clone"/>
@@ -27,7 +32,7 @@ function App() {
 			<Route path="/profile" component={ProfilePage} />
 			<Route path="/faq" component={FaqPage} />
             <Route path="/" component={HomePage} />
-                {/* 
+                {/*
                   <Route path="/profile">
                     <ProfilePage />
                   </Route>
@@ -40,7 +45,7 @@ function App() {
                 */}
         </Switch>
       </Router>
-    </div>
+    </Provider>
   );
 }
 

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { connect } from 'react-redux' // H0C: high order component
+
 import { getServices } from '../store'
 import ServiceItem from '../components/service/ServiceItem'
 
@@ -21,6 +23,7 @@ class Home extends React.Component {
 
   render() {
     const { services } = this.state
+    const { testingData, testingNumber } = this.props.reduxData
     return (
       <div>
 
@@ -75,4 +78,12 @@ class Home extends React.Component {
   }
 }
 
-export default Home
+const mapStateToProps = (state) => {
+
+}
+
+export default connect((state) => {
+  return {
+    reduxData: state.service
+  }
+})(Home)
